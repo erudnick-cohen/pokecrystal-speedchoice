@@ -17,10 +17,10 @@ CeruleanGym_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-.DummyScene0:
+UnknownScript_0x1883d9:
 	end
 
-.GruntRunsOut:
+UnknownScript_0x1883da:
 	priorityjump .GruntRunsOutScript
 	end
 

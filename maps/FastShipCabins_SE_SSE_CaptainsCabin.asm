@@ -78,7 +78,7 @@ UnknownScript_0x75f09:
 	spriteface FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN2, DOWN
 	applymovement FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_GENTLEMAN, MovementData_0x76010
 	opentext
-	writetext UnknownText_0x76143
+	writetext SSAquaEntertainedGranddaughterText
 	buttonsound
 	setevent EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	domaptrigger FAST_SHIP_1F, $0
@@ -90,8 +90,8 @@ GentlemanScript_0x75f1f:
 	checkevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
 	iftrue UnknownScript_0x75f67
 	checkevent EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_2
-	iftrue UnknownScript_0x75f58
-	writetext UnknownText_0x760ae
+	iftrue SSAquaFoundGranddaughter
+	writetext SSAquaCantFindGranddaughterText
 	waitbutton
 	closetext
 	domaptrigger FAST_SHIP_1F, $0
@@ -116,13 +116,13 @@ SSAquaMetalCoatAndDocking:
 	closetext
 	end
 
-UnknownScript_0x75f58:
-	writetext UnknownText_0x7619b
+SSAquaFoundGranddaughter:
+	writetext SSAquaGrandpaHaveThisText
 	buttonsound
 	verbosegiveitem METAL_COAT
-	iffalse UnknownScript_0x75f65
+	iffalse .NoRoom
 	setevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
-UnknownScript_0x75f65:
+.NoRoom:
 	closetext
 	end
 
@@ -258,7 +258,7 @@ UnknownText_0x76064:
 	cont "waves."
 	done
 
-UnknownText_0x760ae:
+SSAquaCantFindGranddaughterText:
 	text "Oh, hello…"
 
 	para "I still can't find"

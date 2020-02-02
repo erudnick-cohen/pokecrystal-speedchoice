@@ -104,7 +104,7 @@ UnknownScript_0x994ff:
 	closetext
 	end
 
-.GetSurf:
+UnknownScript_0x99505:
 	writetext SurfGuyLikeADanceText
 	buttonsound
 	verbosegiveitem HM_SURF
