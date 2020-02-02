@@ -19,161 +19,161 @@ CopycatsHouse2F_MapScriptHeader:
 
 CopycatsHouse2FCallback:
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part1
+	iftrue .Female
 	disappear COPYCATSHOUSE2F_COPYCAT2
 	appear COPYCATSHOUSE2F_COPYCAT1
 	jump .Done
-.Part1
+.Female:
 	disappear COPYCATSHOUSE2F_COPYCAT1
 	appear COPYCATSHOUSE2F_COPYCAT2
-.Done
+.Done:
 	return
 
 Copycat:
 	faceplayer
 	checkevent EVENT_GOT_PASS_FROM_COPYCAT
-	iftrue .Part15
+	iftrue .GotPass
 	checkevent EVENT_RETURNED_LOST_ITEM_TO_COPYCAT
-	iftrue .Part13
+	iftrue .TryGivePassAgain
 	checkitem LOST_ITEM
-	iftrue .Part12
+	iftrue .ReturnLostItem
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part1
+	iftrue .Default_Female_1
 	applymovement COPYCATSHOUSE2F_COPYCAT1, MovementData_0x18afd0
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_CHRIS
-	jump .Part2
+	jump .Default_Merge_1
 
-.Part1
+.Default_Female_1:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, MovementData_0x18afd0
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_KRIS
-.Part2
+.Default_Merge_1:
 	special RunCallback_04
 	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .Part7
+	iftrue .TalkAboutLostItem
 	check_permaoptions EARLY_KANTO
-	iftrue .Part7
+	iftrue .TalkAboutLostItem
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part3
-	writetext UnknownText_0x18afda
-	jump .Part4
+	iftrue .Default_Female_2a
+	writetext CopycatText_Male_1
+	jump .Default_Merge_2a
 
-.Part3
-	writetext UnknownText_0x18b316
-.Part4
+.Default_Female_2a:
+	writetext CopycatText_Female_1
+.Default_Merge_2a:
 	waitbutton
 	closetext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part5
+	iftrue .Default_Female_3a
 	applymovement COPYCATSHOUSE2F_COPYCAT1, MovementData_0x18afd0
-	jump .Part6
+	jump .Default_Merge_3a
 
-.Part5
+.Default_Female_3a:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, MovementData_0x18afd0
-.Part6
+.Default_Merge_3a:
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special RunCallback_04
 	opentext
-	writetext UnknownText_0x18b028
+	writetext CopycatText_QuickMimicking
 	waitbutton
 	closetext
 	end
 
-.Part7
+.TalkAboutLostItem:
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part8
-	writetext UnknownText_0x18b064
-	jump .Part9
+	iftrue .Default_Female_2b
+	writetext CopycatText_Male_2
+	jump .Default_Merge_2b
 
-.Part8
-	writetext UnknownText_0x18b366
-.Part9
+.Default_Female_2b:
+	writetext CopycatText_Female_2
+.Default_Merge_2b:
 	waitbutton
 	closetext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part10
+	iftrue .Default_Female_3b
 	applymovement COPYCATSHOUSE2F_COPYCAT1, MovementData_0x18afd0
-	jump .Part11
+	jump .Default_Merge_3b
 
-.Part10
+.Default_Female_3b:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, MovementData_0x18afd0
-.Part11
+.Default_Merge_3b:
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special RunCallback_04
 	opentext
-	writetext UnknownText_0x18b116
+	writetext CopycatText_Worried
 	waitbutton
 	closetext
 	setevent EVENT_MET_COPYCAT_FOUND_OUT_ABOUT_LOST_ITEM
 	end
 
-.Part12
+.ReturnLostItem:
 	opentext
-	writetext UnknownText_0x18b17f
+	writetext CopycatText_GiveDoll
 	buttonsound
 	takeitem LOST_ITEM
 	setevent EVENT_RETURNED_LOST_ITEM_TO_COPYCAT
 	clearevent EVENT_COPYCATS_HOUSE_2F_DOLL
-	jump .Part14
+	jump .GivePass
 
-.Part13
+.TryGivePassAgain:
 	opentext
-.Part14
-	writetext UnknownText_0x18b1e2
+.GivePass:
+	writetext CopycatText_GivePass
 	buttonsound
 	verbosegiveitem PASS
-	iffalse .Part22
+	iffalse .Cancel
 	setevent EVENT_GOT_PASS_FROM_COPYCAT
-	writetext UnknownText_0x18b214
+	writetext CopycatText_ExplainPass
 	waitbutton
 	closetext
 	end
 
-.Part15
+.GotPass:
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part16
+	iftrue .GotPass_Female_1
 	applymovement COPYCATSHOUSE2F_COPYCAT1, MovementData_0x18afd0
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_CHRIS
-	jump .Part17
+	jump .GotPass_Merge_1
 
-.Part16
+.GotPass_Female_1:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, MovementData_0x18afd0
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_KRIS
-.Part17
+.GotPass_Merge_1:
 	special RunCallback_04
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part18
-	writetext UnknownText_0x18b298
-	jump .Part19
+	iftrue .GotPass_Female_2
+	writetext CopycatText_Male_3
+	jump .GotPass_Merge_2
 
-.Part18
-	writetext UnknownText_0x18b415
-.Part19
+.GotPass_Female_2:
+	writetext CopycatText_Female_3
+.GotPass_Merge_2:
 	waitbutton
 	closetext
 	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Part20
+	iftrue .GotPass_Female_3
 	applymovement COPYCATSHOUSE2F_COPYCAT1, MovementData_0x18afd0
-	jump .Part21
+	jump .GotPass_Merge_3
 
-.Part20
+.GotPass_Female_3:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, MovementData_0x18afd0
-.Part21
+.GotPass_Merge_3:
 	faceplayer
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special RunCallback_04
 	opentext
-	writetext UnknownText_0x18b2f5
+	writetext CopycatText_ItsAScream
 	waitbutton
-.Part22
+.Cancel:
 	closetext
 	end
 
@@ -205,7 +205,7 @@ MovementData_0x18afd0:
 	turn_head_down
 	step_end
 
-UnknownText_0x18afda:
+CopycatText_Male_1:
 	text "<PLAYER>: Hi! Do"
 	line "you like #MON?"
 
@@ -216,7 +216,7 @@ UnknownText_0x18afda:
 	line "You're strange!"
 	done
 
-UnknownText_0x18b028:
+CopycatText_QuickMimicking:
 	text "COPYCAT: Hmm?"
 	line "Quit mimicking?"
 
@@ -224,7 +224,7 @@ UnknownText_0x18b028:
 	line "favorite hobby!"
 	done
 
-UnknownText_0x18b064:
+CopycatText_Male_2:
 	text "<PLAYER>: Hi!"
 	line "I heard that you"
 
@@ -243,7 +243,7 @@ UnknownText_0x18b064:
 	cont "to VERMILION CITY?"
 	done
 
-UnknownText_0x18b116:
+CopycatText_Worried:
 	text "COPYCAT: Pardon?"
 
 	para "I shouldn't decide"
@@ -251,11 +251,11 @@ UnknownText_0x18b116:
 	cont "do?"
 
 	para "But I'm really"
-	line "worried… What if"
+	line "worried... What if"
 	cont "someone finds it?"
 	done
 
-UnknownText_0x18b17f:
+CopycatText_GiveDoll:
 	text "COPYCAT: Yay!"
 	line "That's my CLEFAIRY"
 	cont "# DOLL!"
@@ -267,13 +267,13 @@ UnknownText_0x18b17f:
 	line "proof!"
 	done
 
-UnknownText_0x18b1e2:
+CopycatText_GivePass:
 	text "OK. Here's the"
 	line "MAGNET TRAIN PASS"
 	cont "like I promised!"
 	done
 
-UnknownText_0x18b214:
+CopycatText_ExplainPass:
 	text "COPYCAT: That's"
 	line "the PASS for the"
 	cont "MAGNET TRAIN."
@@ -286,7 +286,7 @@ UnknownText_0x18b214:
 	cont "for the STATION."
 	done
 
-UnknownText_0x18b298:
+CopycatText_Male_3:
 	text "<PLAYER>: Hi!"
 	line "Thanks a lot for"
 	cont "the rail PASS!"
@@ -298,12 +298,12 @@ UnknownText_0x18b298:
 	cont "my every move?"
 	done
 
-UnknownText_0x18b2f5:
+CopycatText_ItsAScream:
 	text "COPYCAT: You bet!"
 	line "It's a scream!"
 	done
 
-UnknownText_0x18b316:
+CopycatText_Female_1:
 	text "<PLAYER>: Hi. You"
 	line "must like #MON."
 
@@ -314,7 +314,7 @@ UnknownText_0x18b316:
 	line "You're weird!"
 	done
 
-UnknownText_0x18b366:
+CopycatText_Female_2:
 	text "<PLAYER>: Hi. Did"
 	line "you really lose"
 	cont "your # DOLL?"
@@ -333,11 +333,11 @@ UnknownText_0x18b366:
 	cont "in VERMILION?"
 	done
 
-UnknownText_0x18b415:
+CopycatText_Female_3:
 	text "<PLAYER>: Thank you"
 	line "for the rail PASS!"
 
-	para "<PLAYER>: …Pardon?"
+	para "<PLAYER>: ...Pardon?"
 
 	para "<PLAYER>: Is it"
 	line "really that fun to"

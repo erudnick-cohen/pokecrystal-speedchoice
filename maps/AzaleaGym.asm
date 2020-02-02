@@ -14,7 +14,7 @@ AzaleaGym_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-BugsyScript:
+AzaleaGymBugsyScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_BUGSY
