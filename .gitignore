@@ -9,6 +9,9 @@
 # no binaries
 *.exe
 
+#no .bak
+.bak
+
 # roms
 *.gbc
 *.gb
