@@ -9,47 +9,47 @@ EcruteakItemfinderHouse_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-EcruteakItemfinderGuy:
+CooltrainerMScript_0x9a5fb:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_ITEMFINDER
-	iftrue .itemfinder
-	writetext EcruteakItemfinderAdventureText
+	iftrue UnknownScript_0x9a614
+	writetext UnknownText_0x9a63c
 	yesorno
-	iffalse .no
-	writetext EcruteakItemfinderTrueSpiritText
+	iffalse UnknownScript_0x9a61a
+	writetext UnknownText_0x9a6b5
 	buttonsound
 	verbosegiveitem ITEMFINDER
 	setevent EVENT_GOT_ITEMFINDER
-.itemfinder:
-	writetext ItemfinderExplanationText
+UnknownScript_0x9a614:
+	writetext UnknownText_0x9a70e
 	waitbutton
 	closetext
 	end
 
-.no:
-	writetext EcruteakItemfinderToEachHisOwnText
+UnknownScript_0x9a61a:
+	writetext UnknownText_0x9a805
 	waitbutton
 	closetext
 	end
 
-EcruteakHistoryBook:
+PokedexScript_0x9a620:
 	opentext
-	writetext EcruteakHistoryBookText
+	writetext UnknownText_0x9a826
 	yesorno
-	iftrue .ReadBook
+	iftrue UnknownScript_0x9a62a
 	closetext
 	end
 
-.ReadBook:
-	writetext EcruteakTwoTowersText
+UnknownScript_0x9a62a:
+	writetext UnknownText_0x9a84c
 	yesorno
-	iftrue .KeepReading
+	iftrue UnknownScript_0x9a633
 	closetext
 	end
 
-.KeepReading:
-	writetext EcruteakThreeMonText
+UnknownScript_0x9a633:
+	writetext UnknownText_0x9a902
 	waitbutton
 	closetext
 	end
@@ -57,7 +57,7 @@ EcruteakHistoryBook:
 ItemFinderHouseRadio:
 	jumpstd radio2
 
-EcruteakItemfinderAdventureText:
+UnknownText_0x9a63c:
 	text "Ah. You're on an"
 	line "adventure with"
 	cont "your #MON?"
@@ -70,7 +70,7 @@ EcruteakItemfinderAdventureText:
 	line "I right?"
 	done
 
-EcruteakItemfinderTrueSpiritText:
+UnknownText_0x9a6b5:
 	text "Good! You under-"
 	line "stand the true"
 
@@ -81,7 +81,7 @@ EcruteakItemfinderTrueSpiritText:
 	line "this with you."
 	done
 
-ItemfinderExplanationText:
+UnknownText_0x9a70e:
 	text "There are many"
 	line "items lying about"
 
@@ -107,19 +107,19 @@ ItemfinderExplanationText:
 	line "BURNED TOWER."
 	done
 
-EcruteakItemfinderToEachHisOwnText:
+UnknownText_0x9a805:
 	text "Oh… To each his"
 	line "own, I suppose…"
 	done
 
-EcruteakHistoryBookText:
+UnknownText_0x9a826:
 	text "HISTORY OF"
 	line "ECRUTEAK"
 
 	para "Want to read it?"
 	done
 
-EcruteakTwoTowersText:
+UnknownText_0x9a84c:
 	text "In ECRUTEAK, there"
 	line "were two towers."
 
@@ -138,7 +138,7 @@ EcruteakTwoTowersText:
 	para "Keep reading?"
 	done
 
-EcruteakThreeMonText:
+UnknownText_0x9a902:
 	text "ECRUTEAK was also"
 	line "home to three"
 
@@ -180,5 +180,5 @@ EcruteakItemfinderHouse_MapEventHeader:
 
 .PersonEvents:
 	db 2
-	person_event SPRITE_COOLTRAINER_M, 3, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, EcruteakItemfinderGuy, -1
-	person_event SPRITE_POKEDEX, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, EcruteakHistoryBook, -1
+	person_event SPRITE_COOLTRAINER_M, 3, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CooltrainerMScript_0x9a5fb, -1
+	person_event SPRITE_POKEDEX, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PokedexScript_0x9a620, -1

@@ -82,7 +82,7 @@ UnknownScript_0x75f09:
 	buttonsound
 	setevent EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	domaptrigger FAST_SHIP_1F, $0
-	jump SSAquaMetalCoatAndDocking
+	jump UnknownScript_0x75f37
 
 GentlemanScript_0x75f1f:
 	faceplayer
@@ -97,13 +97,13 @@ GentlemanScript_0x75f1f:
 	domaptrigger FAST_SHIP_1F, $0
 	end
 
-SSAquaMetalCoatAndDocking:
-	writetext SSAquaGrandpaHaveThisText
+UnknownScript_0x75f37:
+	writetext UnknownText_0x7619b
 	buttonsound
 	verbosegiveitem METAL_COAT
-	iffalse .NoRoom
+	iffalse UnknownScript_0x75f44
 	setevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
-.NoRoom:
+UnknownScript_0x75f44:
 	closetext
 	waitsfx
 	playsound SFX_ELEVATOR_END
@@ -274,7 +274,7 @@ UnknownText_0x760ae:
 	line "one. I'm worried…"
 	done
 
-SSAquaEntertainedGranddaughterText:
+UnknownText_0x76143:
 	text "<PLAY_G>, was it?"
 	line "I heard you enter-"
 	cont "tained my grand-"
@@ -284,7 +284,7 @@ SSAquaEntertainedGranddaughterText:
 	line "you for that."
 	done
 
-SSAquaGrandpaHaveThisText:
+UnknownText_0x7619b:
 	text "I know! I'd like"
 	line "you to have this!"
 	done

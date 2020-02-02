@@ -21,12 +21,12 @@ ChuckScript_0x9d60f:
 	opentext
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
-	writetext ChuckIntroText1
+	writetext UnknownText_0x9d6f9
 	waitbutton
 	closetext
 	spriteface CIANWOODGYM_CHUCK, RIGHT
 	opentext
-	writetext ChuckIntroText2
+	writetext UnknownText_0x9d76f
 	waitbutton
 	closetext
 	applymovement CIANWOODGYM_BOULDER1, MovementData_0x9d6f3
@@ -36,42 +36,42 @@ ChuckScript_0x9d60f:
 	pause 30
 	faceplayer
 	opentext
-	writetext ChuckIntroText3
+	writetext UnknownText_0x9d78a
 	waitbutton
 	closetext
-	winlosstext ChuckLossText, 0
+	winlosstext UnknownText_0x9d7f6, 0
 	loadtrainer CHUCK, 1
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
 	opentext
-	writetext GetStormBadgeText
+	writetext UnknownText_0x9d835
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
 	checkcode VAR_BADGES
 	scall CianwoodGymTriggerRockets
-.FightDone:
+.FightDone
 	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
-	iftrue .AlreadyGotTM
+	iftrue UnknownScript_0x9d67b
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
 	setevent EVENT_BEAT_BLACKBELT_LUNG
-	writetext ChuckExplainBadgeText
+	writetext UnknownText_0x9d84d
 	buttonsound
 	verbosegiveitem TM_DYNAMICPUNCH
-	iffalse .BagFull
+	iffalse UnknownScript_0x9d67f
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
-	writetext ChuckExplainTMText
+	writetext UnknownText_0x9d8da
 	waitbutton
 	closetext
 	end
 
-.AlreadyGotTM:
-	writetext ChuckAfterText
+UnknownScript_0x9d67b:
+	writetext UnknownText_0x9d930
 	waitbutton
-.BagFull:
+UnknownScript_0x9d67f:
 	closetext
 	end
 
@@ -149,7 +149,7 @@ MovementData_0x9d6f3:
 	db $38 ; movement
 	step_end
 
-ChuckIntroText1:
+UnknownText_0x9d6f9:
 	text "WAHAHAH!"
 
 	para "So you've come"
@@ -165,14 +165,14 @@ ChuckIntroText1:
 	para "Watch this!"
 	done
 
-ChuckIntroText2:
+UnknownText_0x9d76f:
 	text "CHUCK: Urggh!"
 	line "…"
 
 	para "Oooarrgh!"
 	done
 
-ChuckIntroText3:
+UnknownText_0x9d78a:
 	text "There! Scared now,"
 	line "are you?"
 
@@ -186,7 +186,7 @@ ChuckIntroText3:
 	line "do battle!"
 	done
 
-ChuckLossText:
+UnknownText_0x9d7f6:
 	text "Wha? Huh?"
 	line "I lost?"
 
@@ -195,12 +195,12 @@ ChuckLossText:
 	cont "STORMBADGE!"
 	done
 
-GetStormBadgeText:
+UnknownText_0x9d835:
 	text "<PLAYER> received"
 	line "STORMBADGE."
 	done
 
-ChuckExplainBadgeText:
+UnknownText_0x9d84d:
 	text "STORMBADGE makes"
 	line "all #MON up to"
 
@@ -217,7 +217,7 @@ ChuckExplainBadgeText:
 	line "too!"
 	done
 
-ChuckExplainTMText:
+UnknownText_0x9d8da::
 	text "That is DYNAMIC-"
 	line "PUNCH."
 
@@ -228,7 +228,7 @@ ChuckExplainTMText:
 	line "confusion!"
 	done
 
-ChuckAfterText:
+UnknownText_0x9d930:
 	text "WAHAHAH! I enjoyed"
 	line "battling you!"
 

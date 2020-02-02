@@ -33,6 +33,8 @@ BlackthornGym1F_MapScriptHeader:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
+	checkflag ENGINE_RISINGBADGE
+	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
 	iftrue .FightDone
 	writetext ClairIntroText
@@ -77,23 +79,10 @@ BlackthornGymClairScript:
 	closetext
 	end
 
-.AlreadyGotBadge:
+.AlreadyGotBadge
 	checkevent EVENT_GOT_TM24_DRAGONBREATH
 	iftrue .GotTM24
 	writetext BlackthornGymClairText_YouKeptMeWaiting
-	buttonsound
-	giveitem TM_DRAGONBREATH
-	iffalse .BagFull
-	itemtotext TM_DRAGONBREATH, $0
-	writetext BlackthornGymText_ReceivedTM24
-	playsound SFX_ITEM
-	waitsfx
-	itemnotify
-	setevent EVENT_GOT_TM24_DRAGONBREATH
-	writetext BlackthornGymClairText_DescribeTM24
-	buttonsound
-	jump .GotTM24
-
 .GiveTM
 	buttonsound
 	giveitem TM_DRAGONBREATH

@@ -10,20 +10,20 @@ DarkCaveBlackthornEntrance_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-DarkCaveBlackthornEntrancePharmacistScript:
+PharmacistScript_0x18c720:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_BLACKGLASSES_IN_DARK_CAVE
-	iftrue .GotBlackglasses
-	writetext DarkCaveBlackthornEntrancePharmacistText1
+	iftrue UnknownScript_0x18c735
+	writetext UnknownText_0x18c73f
 	buttonsound
 	verbosegiveitem BLACKGLASSES
-	iffalse .PackFull
+	iffalse UnknownScript_0x18c739
 	setevent EVENT_GOT_BLACKGLASSES_IN_DARK_CAVE
-.GotBlackglasses:
-	writetext DarkCaveBlackthornEntrancePharmacistText2
+UnknownScript_0x18c735:
+	writetext UnknownText_0x18c80c
 	waitbutton
-.PackFull:
+UnknownScript_0x18c739:
 	closetext
 	end
 
@@ -33,7 +33,7 @@ DarkCaveBlackthornEntranceRevive:
 DarkCaveBlackthornEntranceTMSnore:
 	itemball TM_SNORE
 
-DarkCaveBlackthornEntrancePharmacistText1:
+UnknownText_0x18c73f:
 	text "Whoa! You startled"
 	line "me there!"
 
@@ -55,7 +55,7 @@ DarkCaveBlackthornEntrancePharmacistText1:
 	cont "you saw me, OK?"
 	done
 
-DarkCaveBlackthornEntrancePharmacistText2:
+UnknownText_0x18c80c:
 	text "BLACKGLASSES ups"
 	line "the power of dark-"
 	cont "type moves."

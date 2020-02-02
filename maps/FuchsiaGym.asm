@@ -43,20 +43,20 @@ JanineScript_0x195db9:
 	setflag ENGINE_SOULBADGE
 	checkcode VAR_BADGES
 	scall FuchsiaGymTriggerRockets
-	jump .AfterBattle
+	jump UnknownScript_0x195e02
 .FightDone
 	faceplayer
 	opentext
-.AfterBattle:
+UnknownScript_0x195e02:
 	checkevent EVENT_GOT_TM06_TOXIC
-	iftrue .AfterTM
-	writetext JanineText_ToxicSpeech
+	iftrue UnknownScript_0x195e15
+	writetext UnknownText_0x196002
 	buttonsound
 	verbosegiveitem TM_TOXIC
-	iffalse .AfterTM
+	iffalse UnknownScript_0x195e15
 	setevent EVENT_GOT_TM06_TOXIC
-.AfterTM:
-	writetext JanineText_ApplyMyself
+UnknownScript_0x195e15:
+	writetext UnknownText_0x196074
 	waitbutton
 	closetext
 	end
@@ -276,7 +276,7 @@ UnknownText_0x195feb:
 	line "SOULBADGE."
 	done
 
-JanineText_ToxicSpeech:
+UnknownText_0x196002::
 	text "JANINE: You're so"
 	line "tough! I have a"
 	cont "special gift!"
@@ -288,7 +288,7 @@ JanineText_ToxicSpeech:
 	line "victim's HP."
 	done
 
-JanineText_ApplyMyself:
+UnknownText_0x196074:
 	text "JANINE: I'm going"
 	line "to really apply"
 

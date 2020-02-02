@@ -104,12 +104,12 @@ UnknownScript_0x994ff:
 	closetext
 	end
 
-.GetSurf:
-	writetext SurfGuyLikeADanceText
+UnknownScript_0x99505:
+	writetext UnknownText_0x9991a
 	buttonsound
 	verbosegiveitem HM_SURF
 	setevent EVENT_GOT_HM03_SURF
-	writetext SurfGuySurfExplanationText
+	writetext UnknownText_0x9999b
 	waitbutton
 	closetext
 	end
@@ -266,7 +266,7 @@ UnknownText_0x998d4:
 	line "give you a gift."
 	done
 
-SurfGuyLikeADanceText:
+UnknownText_0x9991a:
 	text "The way you bat-"
 	line "tled, it was like"
 	cont "watching a dance."
@@ -279,7 +279,7 @@ SurfGuyLikeADanceText:
 	cont "--take it!"
 	done
 
-SurfGuySurfExplanationText:
+UnknownText_0x9999b:
 	text "That's SURF."
 
 	para "It's a move that"
