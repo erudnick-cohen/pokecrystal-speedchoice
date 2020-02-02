@@ -3,11 +3,11 @@ SRAM_End   EQU $c000
 GLOBAL SRAM_Begin, SRAM_End
 
 
-SECTION "Scratch", SRAM
+SECTION "Scratch", SRAM, BANK [0]
 sScratch::
 
 
-SECTION "SRAM Bank 0", SRAM
+SECTION "SRAM Bank 0", SRAM [$a600], BANK [0]
 
 ; a600
 sPartyMail::
@@ -78,7 +78,7 @@ sRTCStatusFlags:: ds 8
 sLuckyNumberDay:: ds 1
 sLuckyIDNumber:: ds 2
 
-SECTION "Backup Save", SRAM
+SECTION "Backup Save", SRAM [$b200], BANK [0]
 sBackupOptions:: ds OptionsEnd - Options
 
 s0_b208:: ds 1
@@ -98,7 +98,7 @@ s0_bf0f:: ds 1
 sStackTop:: ds 2
 
 
-SECTION "SRAM Bank 1", SRAM
+SECTION "SRAM Bank 1", SRAM, BANK [1]
 
 sOptions:: ds OptionsEnd - Options
 
@@ -196,7 +196,7 @@ sCrystalData::
 	ds wCrystalDataEnd - wCrystalData
 sMobileEventIndexBackup:: ds 1
 
-SECTION "SRAM Battle Tower", SRAM
+SECTION "SRAM Battle Tower", SRAM [$be45], BANK [1]
 ; data of the BattleTower must be in SRAM because you can save and leave between battles
 sBattleTowerChallengeState:: ds 1
 ; 0: normal
@@ -221,7 +221,7 @@ sBTPkmnPrevPrevTrainer1:: ds 1
 sBTPkmnPrevPrevTrainer2:: ds 1
 sBTPkmnPrevPrevTrainer3:: ds 1
 
-SECTION "SRAM Speedchoice Stats", SRAM
+SECTION "SRAM Speedchoice Stats", SRAM, BANK [1]
 sStatsStart::
 sStatsFrameCount:: ds 4
 sStatsOWFrameCount:: ds 4
@@ -276,7 +276,7 @@ sStatsNumPokemaniacsFought:: dw
 sStatsEnd::
 
 
-SECTION "Boxes 1-7",  SRAM
+SECTION "Boxes 1-7",  SRAM, BANK [2]
 	box sBox1
 	box sBox2
 	box sBox3
@@ -285,7 +285,7 @@ SECTION "Boxes 1-7",  SRAM
 	box sBox6
 	box sBox7
 
-SECTION "Boxes 8-14", SRAM
+SECTION "Boxes 8-14", SRAM, BANK [3]
 	box sBox8
 	box sBox9
 	box sBox10

@@ -2,7 +2,7 @@ INCLUDE "includes.asm"
 INCLUDE "macros/wram.asm"
 INCLUDE "vram.asm"
 
-SECTION "Stack", WRAM0
+SECTION "Stack", WRAM0 [$c000]
 wc000::
 StackBottom::
 	ds $100 - 1
@@ -11,7 +11,7 @@ StackTop::
 	ds 1
 
 
-SECTION "AudioWRAM", WRAM0
+SECTION "AudioWRAM", WRAM0 [$c100]
 wMusic::
 MusicPlaying:: ; c100
 ; nonzero if playing
@@ -134,7 +134,7 @@ wMapMusic:: ; c2c0
 wDontPlayMapMusicOnReload:: ds 1
 wMusicEnd::
 
-SECTION "WRAM", WRAM0
+SECTION "WRAM", WRAM0 [$c2c2]
 
 wLZAddress:: dw ; c2c2
 wLZBank::    db ; c2c4
@@ -216,7 +216,7 @@ TilePermissions:: ; c2fe
 
 	ds 1
 
-SECTION "wSpriteAnims", WRAM0
+SECTION "wSpriteAnims", WRAM0 [$c300]
 ; wc300 - wc313 is a 10x2 dictionary.
 ; keys: taken from third column of SpriteAnimSeqData
 ; values: VTiles
@@ -336,7 +336,7 @@ wc3fb:: ds 1
 wc3fc:: ds 4
 
 
-SECTION "Sprites", WRAM0
+SECTION "Sprites", WRAM0 [$c400]
 
 Sprites:: ; c400
 ; 4 bytes per sprite
@@ -356,7 +356,7 @@ Sprites:: ; c400
 SpritesEnd::
 
 
-SECTION "Tilemap", WRAM0
+SECTION "Tilemap", WRAM0 [$c4a0]
 
 TileMap:: ; c4a0
 ; 20x18 grid of 8x8 tiles
@@ -364,7 +364,7 @@ TileMap:: ; c4a0
 TileMapEnd::
 
 
-SECTION "Battle", WRAM0
+SECTION "Battle", WRAM0 [$c608]
 UNION
 wc608::
 wOddEgg:: party_struct OddEgg
@@ -915,7 +915,7 @@ wc7e8:: ds 24
 ENDU
 ENDU
 
-SECTION "Overworld Map", WRAM0
+SECTION "Overworld Map", WRAM0 [$c800]
 
 UNION
 OverworldMap:: ; c800
@@ -1543,7 +1543,7 @@ wOptionsMenuPreset:: ds 1
 wRAM0End:: ; cfd8
 
 
-SECTION "WRAM 1", WRAMX
+SECTION "WRAM 1", WRAMX [$d000], BANK [1]
 
 wd000:: ds 1
 DefaultSpawnpoint::
@@ -2215,7 +2215,7 @@ TimeOfDay:: ; d269
 
 	ds 1
 
-SECTION "Enemy Party", WRAMX
+SECTION "Enemy Party", WRAMX, BANK [1]
 UNION
 wPokedexShowPointerAddr::
 wd26b:: ds 1
@@ -2888,7 +2888,7 @@ wScreenSave:: ds 6 * 5
 wMapDataEnd::
 
 
-SECTION "Party", WRAMX
+SECTION "Party", WRAMX, BANK [1]
 
 wPokemonData::
 
@@ -2996,7 +2996,7 @@ wMagikarpRecordHoldersName:: ds NAME_LENGTH
 wPokemonDataEnd::
 wGameDataEnd::
 
-SECTION "Pic Animations", WRAMX
+SECTION "Pic Animations", WRAMX, BANK [2]
 
 TempTileMap::
 ; 20x18 grid of 8x8 tiles
@@ -3035,7 +3035,7 @@ w2_d188:: ds 1
 wPokeAnimStructEnd::
 
 
-SECTION "Battle Tower", WRAMX
+SECTION "Battle Tower", WRAMX, BANK [3]
 
 w3_d000:: ds 1 ; d000
 w3_d001:: ds 1
@@ -3090,11 +3090,11 @@ w3_dd68:: ds SCREEN_WIDTH * SCREEN_HEIGHT
 w3_dfec:: ds $10
 w3_dffc:: ds 4
 
-SECTION "Aligned Tile Map", WRAMX
+SECTION "Aligned Tile Map", WRAMX, BANK [4]
 AlignedTileMap:: ds $400
 
 
-SECTION "GBC Video", WRAMX
+SECTION "GBC Video", WRAMX, BANK [5]
 
 ; 8 4-color palettes
 UnknBGPals:: ds 8 palettes ; d000
@@ -3119,7 +3119,7 @@ LYOverridesBackup:: ; d200
 LYOverridesBackupEnd::
 
 
-SECTION "Battle Animations", WRAMX
+SECTION "Battle Animations", WRAMX [$d300], BANK [5]
 
 wBattleAnimTileDict:: ds 10
 
@@ -3224,7 +3224,7 @@ NEXTU
 wBattleAnimEnd::
 ENDU
 
-SECTION "WRAM 5 MOBILE", WRAMX
+SECTION "WRAM 5 MOBILE", WRAMX [$d800], BANK [5]
 w5_d800:: ds $200
 w5_da00:: ds $200
 w5_dc00:: ds $d
@@ -3235,7 +3235,7 @@ w5_dc26:: ds $c
 w5_dc32:: ds $c
 w5_dc3e:: ds $c
 
-SECTION "WRAM 6", WRAMX
+SECTION "WRAM 6", WRAMX, BANK [6]
 
 wDecompressScratch:: ds $400
 wBackupAttrMap:: ds $200
@@ -3244,6 +3244,6 @@ w6_d800::
 
 INCLUDE "sram.asm"
 
-SECTION "WRAM 7", WRAMX
+SECTION "WRAM 7", WRAMX, BANK [7]
 wWindowStack:: ds $1000 - 1
 wWindowStackBottom:: ds 1

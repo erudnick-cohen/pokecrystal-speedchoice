@@ -1,18 +1,18 @@
 INCLUDE "includes.asm"
 
-SECTION "NULL", ROM0
+SECTION "NULL", ROM0[0]
 NULL::
 
 INCLUDE "rst.asm"
 INCLUDE "interrupts.asm"
 
-SECTION "Header", ROM0
+SECTION "Header", ROM0[$100]
 
 Start::
 	nop
 	jp _Start
 
-SECTION "Home", ROM0
+SECTION "Home", ROM0[$150]
 
 INCLUDE "home/init.asm"
 INCLUDE "home/vblank.asm"
