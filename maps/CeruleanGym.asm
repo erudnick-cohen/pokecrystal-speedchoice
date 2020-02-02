@@ -17,14 +17,14 @@ CeruleanGym_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-UnknownScript_0x1883d9:
+.DummyScene0:
 	end
 
-UnknownScript_0x1883da:
-	priorityjump UnknownScript_0x1883de
+.GruntRunsOut:
+	priorityjump .GruntRunsOutScript
 	end
 
-UnknownScript_0x1883de:
+.GruntRunsOutScript:
 	applymovement CERULEANGYM_ROCKET, MovementData_0x1884e3
 	playsound SFX_TACKLE
 	applymovement CERULEANGYM_ROCKET, MovementData_0x1884eb
@@ -58,6 +58,7 @@ UnknownScript_0x1883de:
 	pause 15
 	spriteface PLAYER, DOWN
 	pause 15
+	clearevent EVENT_FOUND_MACHINE_PART_IN_CERULEAN_GYM
 	end
 
 MistyScript_0x188432:
@@ -277,7 +278,7 @@ UnknownText_0x18870c:
 	line "are good…"
 
 	para "I'll admit that"
-	line "you are skilled…"
+	line "you are skilled..."
 
 	para "Here you go. It's"
 	line "CASCADEBADGE."
