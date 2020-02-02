@@ -42,7 +42,7 @@ WhitneyScript_0x5400c:
 	setevent EVENT_BEAT_BEAUTY_SAMANTHA
 	setevent EVENT_BEAT_LASS_CARRIE
 	setevent EVENT_BEAT_LASS_BRIDGET
-.FightDone
+.FightDone:
 	opentext
 	checkevent EVENT_MADE_WHITNEY_CRY
 	iffalse .StoppedCrying
@@ -51,7 +51,7 @@ WhitneyScript_0x5400c:
 	closetext
 	end
 
-.StoppedCrying
+.StoppedCrying:
 	checkevent EVENT_GOT_TM45_ATTRACT
 	iftrue UnknownScript_0x54077
 	checkflag ENGINE_PLAINBADGE

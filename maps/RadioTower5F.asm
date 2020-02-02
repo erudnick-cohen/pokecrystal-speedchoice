@@ -7,12 +7,13 @@ const_value set 2
 
 RadioTower5F_MapScriptHeader:
 .MapTriggers:
-	db 3
+	db 4
 
 	; triggers
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 	maptrigger .Trigger2
+	maptrigger .Trigger3
 
 .MapCallbacks:
 	db 0
@@ -25,7 +26,10 @@ RadioTower5F_MapScriptHeader:
 
 .Trigger2:
 	end
-
+	
+.Trigger3:
+	end
+	
 FakeDirectorScript:
 	spriteface RADIOTOWER5F_DIRECTOR, UP
 	showemote EMOTE_SHOCK, RADIOTOWER5F_DIRECTOR, 15
@@ -50,6 +54,33 @@ FakeDirectorScript:
 	verbosegiveitem BASEMENT_KEY
 	closetext
 	dotrigger $1
+	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
+	end
+
+FakeDirectorScriptB:
+	spriteface RADIOTOWER5F_DIRECTOR, UP
+	showemote EMOTE_SHOCK, RADIOTOWER5F_DIRECTOR, 15
+	opentext
+	writetext FakeDirectorTextBefore1
+	waitbutton
+	closetext
+	applymovement RADIOTOWER5F_DIRECTOR, FakeDirectorMovement
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	opentext
+	writetext FakeDirectorTextBefore2
+	waitbutton
+	closetext
+	winlosstext FakeDirectorWinText, 0
+	setlasttalked RADIOTOWER5F_DIRECTOR
+	loadtrainer EXECUTIVEM, 3
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext FakeDirectorTextAfter
+	buttonsound
+	verbosegiveitem BASEMENT_KEY
+	closetext
+	dotrigger $2
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
 	end
 
@@ -132,6 +163,63 @@ RadioTower5FRocketBossTrigger:
 	domaptrigger ECRUTEAK_HOUSE, $0
 	setevent EVENT_GOT_CLEAR_BELL
 	setevent EVENT_TEAM_ROCKET_DISBANDED
+	jump UselessJump
+	
+RadioTower5FRocketBossTriggerB:
+	applymovement PLAYER, MovementData_0x60125
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	spriteface RADIOTOWER5F_ROCKET, RIGHT
+	opentext
+	writetext RadioTower5FRocketBossBeforeText
+	waitbutton
+	closetext
+	winlosstext RadioTower5FRocketBossWinText, 0
+	setlasttalked RADIOTOWER5F_ROCKET
+	loadtrainer EXECUTIVEM, 1
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext RadioTower5FRocketBossAfterText
+	waitbutton
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	disappear RADIOTOWER5F_ROCKET
+	disappear RADIOTOWER5F_ROCKET_GIRL
+	pause 15
+	special Special_FadeInQuickly
+	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_1
+	setevent EVENT_CLEARED_RADIO_TOWER
+	clearflag ENGINE_ROCKETS_IN_RADIO_TOWER
+	setevent EVENT_GOLDENROD_CITY_ROCKET_SCOUT
+	setevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
+	setevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	clearevent EVENT_MAHOGANY_MART_OWNERS
+	clearflag ENGINE_ROCKETS_IN_MAHOGANY
+	clearevent EVENT_GOLDENROD_CITY_CIVILIANS
+	clearevent EVENT_RADIO_TOWER_CIVILIANS_AFTER
+	setevent EVENT_BLACKTHORN_CITY_SUPER_NERD_BLOCKS_GYM
+	clearevent EVENT_BLACKTHORN_CITY_SUPER_NERD_DOES_NOT_BLOCK_GYM
+	special PlayMapMusic
+	disappear RADIOTOWER5F_DIRECTOR
+	moveperson RADIOTOWER5F_DIRECTOR, $c, $0
+	appear RADIOTOWER5F_DIRECTOR
+	applymovement RADIOTOWER5F_DIRECTOR, RadioTower5FDirectorWalksIn
+	spriteface PLAYER, RIGHT
+	opentext
+	writetext RadioTower5FDirectorThankYouText
+	buttonsound
+	verbosegiveitem CLEAR_BELL
+	writetext RadioTower5FDirectorDescribeClearBellText
+	waitbutton
+	closetext
+	dotrigger $3
+	domaptrigger ECRUTEAK_HOUSE, $0
+	setevent EVENT_GOT_CLEAR_BELL
+	setevent EVENT_TEAM_ROCKET_DISBANDED
+	jump UselessJump
+
+UselessJump:	
 	check_permaoptions EARLY_KANTO
 	iffalse .skip_boat_and_train
 	; setup for boat
@@ -438,9 +526,11 @@ RadioTower5F_MapEventHeader:
 	warp_def $0, $c, 3, RADIO_TOWER_4F
 
 .XYTriggers:
-	db 2
+	db 4
 	xy_trigger 0, $3, $0, $0, FakeDirectorScript, $0, $0
 	xy_trigger 1, $5, $10, $0, RadioTower5FRocketBossTrigger, $0, $0
+	xy_trigger 0, $3, $0, $0, FakeDirectorScriptB, $0, $0
+	xy_trigger 1, $5, $10, $0, RadioTower5FRocketBossTriggerB, $0, $0
 
 .Signposts:
 	db 5

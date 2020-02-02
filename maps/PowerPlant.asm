@@ -138,6 +138,8 @@ UnknownScript_0x188e5f:
 PowerPlantManager:
 	faceplayer
 	opentext
+	domaptrigger CERULEAN_GYM, $1
+	dotrigger $1
 	checkevent EVENT_RETURNED_MACHINE_PART
 	iftrue UnknownScript_0x188eac
 	checkitem MACHINE_PART
@@ -335,8 +337,8 @@ UnknownText_0x189264:
 	para "If I catch him,"
 	line "he's going to get"
 
-	para "a taste of my ZAP"
-	line "CANNON!"
+	para "a taste of my "
+	line "ZAP CANNON!"
 	done
 
 UnknownText_0x189308:
@@ -368,7 +370,7 @@ UnknownText_0x1893c4:
 	line "as a reward!"
 	done
 
-UnknownText_0x1893f4::
+UnknownText_0x1893f4:
 	text "MANAGER: TM07 is"
 	line "my ZAP CANNON."
 

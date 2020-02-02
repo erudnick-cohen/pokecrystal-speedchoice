@@ -19,16 +19,16 @@ SandstormHouseWoman:
 	if_greater_than $95, .Loyal
 	jump .Disloyal
 
-.Loyal
+.Loyal:
 	writetext SandstormHouseWomanLoyalText
 	buttonsound
 	verbosegiveitem TM_SANDSTORM
 	iffalse .Done
 	setevent EVENT_GOT_TM37_SANDSTORM
-.AlreadyGotItem
+.AlreadyGotItem:
 	writetext SandstormHouseSandstormDescription
 	waitbutton
-.Done
+.Done:
 	closetext
 	end
 
@@ -66,7 +66,7 @@ SandstormHouseWomanLoyalText:
 	line "your journey."
 	done
 
-SandstormHouseSandstormDescription::
+SandstormHouseSandstormDescription:
 	text "TM37 happens to be"
 	line "SANDSTORM."
 

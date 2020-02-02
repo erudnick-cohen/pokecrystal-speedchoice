@@ -35,9 +35,9 @@ SabrinaScript_0x189c2e:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MARSHBADGE
+	writetext UnknownText_0x189ead
 	checkcode VAR_BADGES
 	scall SaffronGymTriggerRockets
-	writetext UnknownText_0x189ead
 	waitbutton
 	closetext
 	end
