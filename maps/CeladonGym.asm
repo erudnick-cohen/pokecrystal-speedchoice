@@ -37,7 +37,7 @@ ErikaScript_0x72a6a:
 	setflag ENGINE_RAINBOWBADGE
 	checkcode VAR_BADGES
 	scall CeladonGymTriggerRockets
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM19_GIGA_DRAIN
 	iftrue UnknownScript_0x72aae
 	writetext UnknownText_0x72cb0

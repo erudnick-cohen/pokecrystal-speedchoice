@@ -29,7 +29,7 @@ JasmineScript_0x9c12f:
 	setflag ENGINE_MINERALBADGE
 	checkcode VAR_BADGES
 	scall OlivineGymTriggerRockets
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
 	writetext Jasmine_BadgeSpeech

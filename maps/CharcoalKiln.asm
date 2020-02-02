@@ -46,7 +46,7 @@ CharcoalKilnApprentice:
 	closetext
 	end
 
-.Thanks
+.Thanks:
 	writetext CharcoalKilnApprenticeText2
 	buttonsound
 	verbosegiveitem CHARCOAL

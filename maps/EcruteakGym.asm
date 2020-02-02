@@ -48,7 +48,7 @@ MortyScript_0x99d58:
 	domaptrigger ECRUTEAK_HOUSE, $1
 	setevent EVENT_RANG_CLEAR_BELL_1
 	setevent EVENT_RANG_CLEAR_BELL_2
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue UnknownScript_0x99db1
 	setevent EVENT_BEAT_SAGE_JEFFREY
@@ -252,7 +252,7 @@ UnknownText_0x9a059:
 	line "this too."
 	done
 
-UnknownText_0x9a0ec::
+UnknownText_0x9a0ec:
 	text "It's SHADOW BALL."
 	line "It causes damage"
 

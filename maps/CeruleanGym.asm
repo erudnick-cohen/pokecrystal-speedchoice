@@ -278,7 +278,7 @@ UnknownText_0x18870c:
 	line "are good…"
 
 	para "I'll admit that"
-	line "you are skilled..."
+	line "you are skilled…"
 
 	para "Here you go. It's"
 	line "CASCADEBADGE."

@@ -34,7 +34,7 @@ PryceScript_0x199a9e:
 	setflag ENGINE_GLACIERBADGE
 	checkcode VAR_BADGES
 	scall MahoganyGymTriggerRockets
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
 	iftrue PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE

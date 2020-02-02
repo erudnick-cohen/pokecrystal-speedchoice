@@ -31,7 +31,7 @@ FalknerScript_0x683c2:
 	setflag ENGINE_ZEPHYRBADGE
 	checkcode VAR_BADGES
 	scall VioletGymTriggerRockets
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
@@ -136,9 +136,9 @@ UnknownText_0x68473:
 	done
 
 UnknownText_0x6854a:
-	text "…Darn! My dad's"
+	text "...Darn! My dad's"
 	line "cherished bird"
-	cont "#MON…"
+	cont "#MON..."
 
 	para "All right."
 	line "Take this."
@@ -168,7 +168,7 @@ UnknownText_0x685c8:
 	line "too."
 	done
 
-UnknownText_0x68648::
+UnknownText_0x68648:
 	text "By using a TM, a"
 	line "#MON will"
 

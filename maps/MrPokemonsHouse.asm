@@ -69,7 +69,7 @@ MrPokemonsHouse_MrPokemonScript:
 	closetext
 	end
 
-.RedScale
+.RedScale:
 	writetext MrPokemonText_GimmeTheScale
 	yesorno
 	iffalse .refused

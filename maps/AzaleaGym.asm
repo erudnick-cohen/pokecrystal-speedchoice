@@ -34,7 +34,7 @@ AzaleaGymBugsyScript:
 	setflag ENGINE_HIVEBADGE
 	checkcode VAR_BADGES
 	scall AzaleaGymTriggerRockets
-.FightDone
+.FightDone:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
@@ -205,7 +205,7 @@ BugsyText_HiveBadgeSpeech:
 	line "you to have this."
 	done
 
-BugsyText_FuryCutterSpeech::
+BugsyText_FuryCutterSpeech:
 	text "TM49 contains"
 	line "FURY CUTTER."
 
