@@ -528,9 +528,9 @@ RadioTower5F_MapEventHeader:
 .XYTriggers:
 	db 4
 	xy_trigger 0, $3, $0, $0, FakeDirectorScript, $0, $0
+	xy_trigger 3, $3, $0, $0, FakeDirectorScriptB, $0, $0
 	xy_trigger 1, $5, $10, $0, RadioTower5FRocketBossTrigger, $0, $0
-	xy_trigger 0, $3, $0, $0, FakeDirectorScriptB, $0, $0
-	xy_trigger 1, $5, $10, $0, RadioTower5FRocketBossTriggerB, $0, $0
+	xy_trigger 0, $5, $10, $0, RadioTower5FRocketBossTriggerB, $0, $0
 
 .Signposts:
 	db 5
